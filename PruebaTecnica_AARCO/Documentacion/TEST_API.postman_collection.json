@@ -1,0 +1,194 @@
+{
+	"info": {
+		"_postman_id": "0e070355-3b5f-4f03-802f-60dcb6c33101",
+		"name": "TEST_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22780300",
+		"_collection_link": "https://dark-rocket-826909.postman.co/workspace/AARCO_PruebaTecnica~0703da7c-8e95-4bc6-932f-b9505a68c543/collection/22780300-0e070355-3b5f-4f03-802f-60dcb6c33101?action=share&source=collection_link&creator=22780300"
+	},
+	"item": [
+		{
+			"name": "Login-Administrador",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Parsear la respuesta JSON\r",
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"// Guardar el token en una variable de entorno\r",
+							"pm.environment.set(\"token\", jsonData.results.token);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"usuario\": \"QJJaF+RuRFzj/mV3vuuGoA==\",\r\n  \"password\": \"WT1tY4VCh5tNnld16kJW+g==\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}JWT/PostToken",
+					"host": [
+						"{{url}}JWT"
+					],
+					"path": [
+						"PostToken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login-Usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Parsear la respuesta JSON\r",
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"// Guardar el token en una variable de entorno\r",
+							"pm.environment.set(\"token\", jsonData.results.token);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"usuario\": \"QJJaF+RuRFzj/mV3vuuGoA==\",\r\n  \"password\": \"WT1tY4VCh5tNnld16kJW+g==\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}JWT/PostToken",
+					"host": [
+						"{{url}}JWT"
+					],
+					"path": [
+						"PostToken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dasboard-Opcion 1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"filterType\": 1,\r\n  \"string\": \"FERRARI\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}dasboard",
+					"host": [
+						"{{url}}dasboard"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dasboard-Opcion 2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"filterType\": 2,\r\n  \"string\": \"aveo\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}dasboard",
+					"host": [
+						"{{url}}dasboard"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dasboard-Opcion 0",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "//Se agregó paginado para poder mostrar las respuestas\r\n\r\n{\r\n  \"filterType\": 0,\r\n  \"string\": \"Todos\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}dasboard",
+					"host": [
+						"{{url}}dasboard"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
